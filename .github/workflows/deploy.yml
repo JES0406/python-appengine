@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  PROJECT_ID: ${{ vars.GCP_PROJECT_ID }}
 
 jobs:
   deploy:
@@ -22,4 +22,4 @@ jobs:
     
     - name: Deploy to App Engine
       run: |
-        gcloud app deploy --quiet
+        gcloud app deploy --quiet --project=${PROJECT_ID}

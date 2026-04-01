@@ -40,7 +40,7 @@ gcloud init
 2. If not present, create `app.yaml` with contents similar to:
 
 ```yaml
-runtime: python
+runtime: python311
 entrypoint: gunicorn -b :$PORT main:app
 
 env_variables:
@@ -63,7 +63,7 @@ gcloud app browse --local-host=127.0.0.1:8080
 5. Deploy to App Engine:
 
 ```sh
-gcloud app deploy
+gcloud app deploy --quiet --project=${PROJECT_ID}
 ```
 
 6. Open the application at the App Engine URL printed by the deploy command.
